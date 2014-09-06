@@ -31,6 +31,8 @@
 | <Tab>     | Toggles between display modes.                  |
 | q         | Kills the buffer.                               |
 | Q         | Turns off Tomatinho.                            |
+| h/?       | Displaying Tomatinho keys                       |
+
 * Customization
 
 Now, you can customize tomatinho buffer name, the faces used, and

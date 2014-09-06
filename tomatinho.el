@@ -56,6 +56,8 @@
     (define-key map (kbd "<return>") 'tomatinho-interactive-new-pomodoro)
     (define-key map (kbd "S-<return>") 'tomatinho-interactive-deliberate-pause)
     (define-key map (kbd "<tab>") 'tomatinho-interactive-toggle-display)
+    (define-key map (kbd "h") 'tomatinho-display-keys)
+    (define-key map (kbd "?") 'tomatinho-display-keys) ;¤note: content to adapt if map changed
     map))
 
 ;;; Pending custom
@@ -292,6 +294,17 @@
        (if tomatinho-display-tubes
 	   (tomatinho-display-tubes)
 	 (tomatinho-display-history))))))
+
+
+
+;;;;;;;;;;;;;;;;;;;
+;; Interaction   ;;
+;;;;;;;;;;;;;;;;;;;
+(defun tomatinho-display-keys ()
+  "Display tomatinho map in echo area"
+  (interactive)
+  (message "Tomatinho: q[bury] Q[uit] R[eset] Enter[new podomoro] S-Enter[pause]  Tab[change display] ?/h[help]"))
+
 
 ;;;;;;;;;;;;;;;;;;;
 ;; Main function ;;

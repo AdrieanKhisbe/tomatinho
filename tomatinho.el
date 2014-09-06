@@ -58,7 +58,8 @@
     (define-key map (kbd "<tab>") 'tomatinho-interactive-toggle-display)
     (define-key map (kbd "h") 'tomatinho-display-keys)
     (define-key map (kbd "?") 'tomatinho-display-keys) ;¤note: content to adapt if map changed
-    map))
+    map)
+  "Tomatinho mode map")
 
 ;;; Pending custom
 (defvar tomatinho-format "%H:%M:%S"
@@ -98,13 +99,13 @@
 
 (defface tomatinho-current-ok-face
   '((t (:height 2.5 :inherit tomatinho-ok-face)))
-    "Tomatinho face for current tomatinho"
-    :group 'tomatinho)
+  "Tomatinho face for current tomatinho"
+  :group 'tomatinho)
 
 (defface tomatinho-current-pause-face
   '((t (:height 2.5 :inherit tomatinho-pause-face)))
-    "Tomatinho face for current pause"
-    :group 'tomatinho)
+  "Tomatinho face for current pause"
+  :group 'tomatinho)
 
 ;;; Vars
 (defvar tomatinho-timer nil
@@ -305,6 +306,24 @@
   (interactive)
   (message "Tomatinho: q[bury] Q[uit] R[eset] Enter[new podomoro] S-Enter[pause]  Tab[change display] ?/h[help]"))
 
+;; Basic meny for tomatinho
+;; ¤note: for now loacal, maybe add a switchso that user can use global/loczal
+(easy-menu-define tomatinho-menu tomatinho-map
+  "Menu for Tomatinho"
+  '("Tomatinho"
+
+    ["New Podomoro" tomatinho-interactive-new-pomodoro]
+    ["Pause" tomatinho-interactive-deliberate-pause]
+    ["Reset" tomatinho-interactive-reset]
+
+    ["Toggle display" tomatinho-interactive-toggle-display]
+    ["Kill Buffer" tomatinho-interactive-kill-buffer]
+
+    ["Help" tomatinho-display-keys]
+    ["Quit" tomatinho-interactive-quit]
+
+    ))
+;; §later: add :active/:help options
 
 ;;;;;;;;;;;;;;;;;;;
 ;; Main function ;;
